@@ -1,0 +1,16 @@
+/* styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@layer components {
+  .card {
+    @apply border-4 w-[489px] h-72 text-white font-bold;
+    background-color: #04293B;
+   
+    border-radius: theme('borderRadius.lg');
+    padding: theme('spacing.6');
+    box-shadow: theme('boxShadow.xl');
+   
+  }
+  /* ... */
+}

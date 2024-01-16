@@ -17,6 +17,7 @@ const initialState = {
 
 
 function reducer(state, action) {
+  const question = state.questions.at(state.index);
   switch (action.type) {
     case "dataReceived":
       return {
@@ -36,7 +37,7 @@ function reducer(state, action) {
         secondsRemaining: state.questions.length * SECS_PER_QUESTION,
       };
     case "newAnswer":
-      const question = state.questions.at(state.index);
+      
 
       return {
         ...state,
@@ -105,25 +106,35 @@ const handleNext=(e)=>{
   dispatch({ type: "nextQuestion"});
 
 }
+const handleRestart=(e)=>{
+  e.preventDefault();
+  dispatch({ type: "restart"});
+  console.log(initialState);
+
+}
 console.log(questions);
   return (
-    <div className='container max-w-7xl mx-auto pt-6'>
-
-      {status === 'ready' ? (
-        <div>
+    <div className='app'>
+      <div ><h1>Quiz  App</h1> </div>
+     
+      {(index+1) ==numQuestions?status === 'ready' ? (
+        <div className='main'>
       
           <Question
               question={questions[index]}
               dispatch={dispatch}
               answer={answer}
             />
-            <button onClick={handleNext}>Next</button>
+            <button className='btn btn-ul' onClick={handleNext}>Next</button>
+            <button className='btn btn-ul' onClick={handleRestart}>Restart</button>
+            <span className='p-3 bg-slate-500 text-white font-bold'>{numQuestions}</span>
+            <span className='p-3 bg-slate-500 text-white font-bold'>{maxPossiblePoints}</span>
         </div>
       ) : status === 'error' ? (
-        <div>Error loading questions</div>
+        <div className='error'>Error loading questions</div>
       ) : (
         <div>Loading...</div>
-      )}
+      ):(<div><h1>finished</h1> <button className='btn btn-ul' onClick={handleRestart}>Restart</button></div>)}
     </div>
   );
 }

@@ -9,7 +9,8 @@
           "Computer Personal Unit",
           "Central Personal Unit"
         ],
-        "answer": "b) Central Processing Unit"
+        "points": 10,
+        "answer": 1
       },
       {
         "question": "Which of the following is a programming language?",
@@ -18,8 +19,8 @@
           "CSS",
           "Python",
           "XML"
-        ],
-        "answer": "c) Python"
+        ], "points": 10,
+        "answer": 2
       },
       {
         "question": "What is the purpose of RAM in a computer?",
@@ -28,8 +29,8 @@
           "Temporary storage of data and instructions for the CPU",
           "Running the operating system",
           "Controlling input and output devices"
-        ],
-        "answer": "b) Temporary storage of data and instructions for the CPU"
+        ], "points": 10,
+        "answer": 1
       },
       {
         "question": "Which of the following is NOT a type of computer network?",
@@ -38,8 +39,8 @@
           "WAN (Wide Area Network)",
           "MAN (Metropolitan Area Network)",
           "USB (Universal Serial Bus)"
-        ],
-        "answer": "d) USB (Universal Serial Bus)"
+        ], "points": 10,
+        "answer": 3
       },
       {
         "question": "What does GUI stand for?",
@@ -48,8 +49,8 @@
           "General User Interface",
           "Global User Integration",
           "Grouped User Interface"
-        ],
-        "answer": "a) Graphical User Interface"
+        ], "points": 10,
+        "answer": 0
       },
       {
         "question": "Which of the following is an output device?",
@@ -58,8 +59,8 @@
           "Monitor",
           "Scanner",
           "Mouse"
-        ],
-        "answer": "b) Monitor"
+        ], "points": 10,
+        "answer": 1
       },
       {
         "question": "What is the purpose of an operating system?",
@@ -68,8 +69,8 @@
           "To provide a user interface",
           "To run applications",
           "All of the above"
-        ],
-        "answer": "d) All of the above"
+        ], "points": 10,
+        "answer": 3
       },
       {
         "question": "What is the binary equivalent of the decimal number 10?",
@@ -78,8 +79,8 @@
           "1100",
           "1001",
           "1011"
-        ],
-        "answer": "a) 1010"
+        ], "points": 10,
+        "answer": 0
       },
       {
         "question": "What does HTML stand for?",
@@ -88,8 +89,8 @@
           "Hyperlinks and Text Markup Language",
           "High-level Text Markup Language",
           "Hyperlinking Textual Markup Language"
-        ],
-        "answer": "a) Hyper Text Markup Language"
+        ], "points": 10,
+        "answer": 0
       },
       {
         "question": "Which of the following is NOT a type of computer memory?",
@@ -98,8 +99,8 @@
           "RAM (Random Access Memory)",
           "CPU (Central Processing Unit)",
           "Cache Memory"
-        ],
-        "answer": "c) CPU (Central Processing Unit)"
+        ], "points": 10,
+        "answer": 2
       },
  
       {
@@ -109,8 +110,8 @@
           "Scanner",
           "Monitor",
           "Speaker"
-        ],
-        "answer": "b) Scanner"
+        ], "points": 10,
+        "answer": 1
       },
       {
         "question": "What is the purpose of a firewall in a computer network?",
@@ -119,8 +120,8 @@
           "To filter network traffic and protect against unauthorized access",
           "To enhance the speed of data transfer",
           "To increase the storage capacity of the computer"
-        ],
-        "answer": "b) To filter network traffic and protect against unauthorized access"
+        ], "points": 10,
+        "answer": 1
       },
       {
         "question": "What is the function of an IP address in computer networking?",
@@ -129,8 +130,8 @@
           "To identify the location of the computer on the network",
           "To encrypt data transmission",
           "To manage the computer's memory"
-        ],
-        "answer": "b) To identify the location of the computer on the network"
+        ], "points": 10,
+        "answer": 1
       },
       {
         "question": "Which of the following is a file format used for images?",
@@ -139,8 +140,8 @@
           "AVI",
           "JPEG",
           "HTML"
-        ],
-        "answer": "c) JPEG"
+        ], "points": 10,
+        "answer": 2
       },
       {
         "question": "What is the purpose of a compiler in programming?",
@@ -149,8 +150,8 @@
           "To optimize the performance of the code",
           "To debug the code",
           "To provide a user interface for the code"
-        ],
-        "answer": "a) To convert source code into machine code"
+        ], "points": 10,
+        "answer": 0
       },
       {
         "question": "Which of the following is a cloud computing service model?",
@@ -159,8 +160,8 @@
           "LAN (Local Area Network)",
           "WAN (Wide Area Network)",
           "PaaS (Platform as a Service)"
-        ],
-        "answer": "a) IaaS (Infrastructure as a Service)"
+        ], "points": 10,
+        "answer": 0
       },
       {
         "question": "What is the purpose of a URL in web browsing?",
@@ -169,8 +170,8 @@
           "To specify the location of the content on the web server",
           "To encrypt the data transmission",
           "To control the appearance of the web page"
-        ],
-        "answer": "b) To specify the location of the content on the web server"
+        ], "points": 10,
+        "answer": 1
       },
       {
         "question": "Which of the following is a database management system?",
@@ -179,8 +180,8 @@
           "HTML",
           "CSS",
           "Python"
-        ],
-        "answer": "a) MySQL"
+        ], "points": 10,
+        "answer": 0
       },
       {
         "question": "What does DNS stand for in the context of computer networking?",
@@ -189,8 +190,8 @@
           "Dynamic Network Service",
           "Digital Network Security",
           "Data Network System"
-        ],
-        "answer": "a) Domain Name System"
+        ], "points": 10,
+        "answer": 0
       },
       {
         "question": "Which of the following is an example of an operating system?",
@@ -199,8 +200,8 @@
           "Windows 10",
           "Google Chrome",
           "Adobe Photoshop"
-        ],
-        "answer": "b) Windows 10"
+        ], "points": 10,
+        "answer": 1
       }
     ]
   }

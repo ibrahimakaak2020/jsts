@@ -117,7 +117,7 @@ console.log(questions);
     <div className='app'>
       <div ><h1>Quiz  App</h1> </div>
      
-      {(index+1) ==numQuestions?status === 'ready' ? (
+      {(index+1) !==numQuestions?status === 'ready' ? (
         <div className='main'>
       
           <Question

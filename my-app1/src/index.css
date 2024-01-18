@@ -598,6 +598,12 @@ h4 {
   margin-bottom: 2.4rem;
 }
 
+.start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 progress {
   -webkit-appearance: none;
   width: 100%;
@@ -638,6 +644,10 @@ progress {
 
 .btn[disabled]:hover {
   cursor: not-allowed;
+}
+
+.btn-ui {
+  float: right;
 }
 
 .options {
@@ -699,4 +709,8 @@ progress {
 
 .max-w-5xl {
   max-width: 64rem;
+}
+
+.max-w-6xl {
+  max-width: 72rem;
 }

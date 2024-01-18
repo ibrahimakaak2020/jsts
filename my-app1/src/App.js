@@ -1,47 +1,111 @@
-import React, { useEffect, useReducer } from 'react'
-import Header from './Header';
-import Load from './Load';
-import Error from './Error';
-import Question from './Question';
+import React, { useEffect, useReducer, useState } from 'react';
 const url = "http://localhost:2000/questions";
-const initState = {
-    questions: [],
-    index: 0,
-    status: 'loading',
-    highScore: 0,
-    score: 0,
-    hasAnswered:null
+const initialState = {
+  index: 0,
+  score: 0,
+  status: 'loading',
 };
-function reducer(state, action) {
-    switch (action.type) {
-        case 'GET-SUCCESS':
-            return { ...state, status: 'ready', questions: action.payload };
-        case 'GET-ERROR':
-            return { ...state, status: 'error' };
-        default:
-            throw new Error('Action unknown');
-    }
+
+const quizReducer = (state, action) => {
+  switch (action.type) {
+    case 'START_QUIZ':
+      return { ...state, status: 'ready' };
+    case 'ANSWER_QUESTION':
+      const isCorrect = action.payload === action.questions[state.index].correctAnswer;
+      const updatedScore = isCorrect ? state.score + 1 : state.score;
+      const nextIndex = state.index + 1;
+      const nextStatus = nextIndex < action.questions.length ? 'active' : 'finished';
+      return {
+        ...state,
+        index: nextIndex,
+        score: updatedScore,
+        status: nextStatus,
+      };
+    case 'RESTART_QUIZ':
+      return { ...initialState, status: 'ready' };
+    default:
+      return state;
   }
-function App() {
-  const [{ questions, status, index ,hasAnswered}, dispatch] = useReducer(reducer, initState);
-    useEffect(() => {
-        fetch(url)
-            .then((resp) => resp.json())
-            .then((data) => dispatch({ type: 'GET-SUCCESS', payload: data }))
-            .catch(() => dispatch({ type: 'GET-ERROR' }));
-    }, []);
-    
-    return (
-        <div>
-         <Header/> 
-            {status === 'loading' ? (
-            <Load/>
-           ):status === 'ready'?( !hasAnswered &&
-           <Question question={questions[index]} dispatch={dispatch}/>): (
-           
-            <Error />
-            )}
-        </div>
-    );
-}
+};
+
+const Loading = () => <div>Loading...</div>;
+
+const Ready = ({ onStart }) => (
+  <div>
+    <h2>Ready to start</h2>
+    <button onClick={onStart}>Start Quiz</button>
+  </div>
+);
+
+const Question = ({ question, options, onAnswer }) => (
+  <div>
+    <h2>Question</h2>
+    <p>{question.question}</p>
+    <ul>
+      {options.map((option, i) => (
+        <li key={i}>
+          <button onClick={() => onAnswer(option)}>{option}</button>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+const Finished = ({ score, onRestart }) => (
+  <div>
+    <h2>Quiz Finished!</h2>
+    <p>Your score: {score}</p>
+    <button onClick={onRestart}>Restart Quiz</button>
+  </div>
+);
+
+const App = () => {
+  const [state, dispatch] = useReducer(quizReducer, initialState);
+  const [questions,setQuestions]=useState([]);
+  useEffect(() => {
+    fetch(url)
+        .then((resp) => resp.json())
+        .then((data) => setQuestions(data) )
+        .catch(() => console.log("error"));
+}, []);
+  const handleAnswer = (answer) => {
+    dispatch({ type: 'ANSWER_QUESTION', payload: answer, questions });
+  };
+
+  const handleStart = () => {
+    dispatch({ type: 'START_QUIZ' });
+  };
+
+  const handleRestart = () => {
+    dispatch({ type: 'RESTART_QUIZ' });
+  };
+
+  let content;
+  switch (state.status) {
+    case 'loading':
+      content = <Loading />;
+      break;
+    case 'ready':
+      content = <Ready onStart={handleStart} />;
+      break;
+    case 'active':
+      const currentQuestion = questions[state.index];
+      content = (
+        <Question
+          question={currentQuestion.question}
+          options={currentQuestion.options}
+          onAnswer={handleAnswer}
+        />
+      );
+      break;
+    case 'finished':
+      content = <Finished score={state.score} onRestart={handleRestart} />;
+      break;
+    default:
+      content = null;
+  }
+
+  return <div>{content}</div>;
+};
+
 export default App;

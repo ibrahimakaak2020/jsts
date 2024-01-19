@@ -1,5 +1,6 @@
 function Options({ question, dispatch, answer }) {
     const hasAnswered = answer !== null;
+    console.log(hasAnswered);
   
     return (
       <div className="options">
@@ -14,7 +15,7 @@ function Options({ question, dispatch, answer }) {
             }`}
             key={option}
             disabled={hasAnswered}
-            onClick={() => dispatch({ type: "newAnswer", payload: index })}
+            onClick={() => dispatch({ type: "newquestion", payload: index })}
           >
             {option}
           </button>

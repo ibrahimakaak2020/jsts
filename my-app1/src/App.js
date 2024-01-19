@@ -7,6 +7,9 @@ const initialState = {
 };
 
 const quizReducer = (state, action) => {
+  console.log("--------------------------------")
+  console.log(action.payload);
+  console.log("--------------------------------")
   switch (action.type) {
     case 'START_QUIZ':
       return { ...state, status: 'ready' };
@@ -72,6 +75,7 @@ const App = () => {
     dispatch({ type: 'ANSWER_QUESTION', payload: answer, questions });
   };
 
+  
   const handleStart = () => {
     dispatch({ type: 'START_QUIZ' });
   };

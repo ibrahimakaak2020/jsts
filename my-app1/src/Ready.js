@@ -3,7 +3,7 @@ import React from 'react';
 const Ready = ({dispatch}) => {
 
     const handleStart=()=>{
-        dispatch({type:"ACTIVE"})
+        dispatch({type:"Testing"})
     }
     return (
         <div>
